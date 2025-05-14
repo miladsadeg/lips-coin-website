@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lips Coin - The hottest meme coin on Solana">
+    <title>Lips Coin - Next-Gen Meme Coin on Solana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6e0ad6;
+            --secondary: #ff6b00;
+            --dark: #1a1a2e;
+            --light: #f5f5f7;
+            --text: #333;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: var(--light);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #8a2be2);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary);
+            box-shadow: 0 8px 24px rgba(110,10,214,0.3);
+            margin: 1.5rem auto;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        h1 {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-family: 'Bangers', cursive;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Wallet Section */
+        .wallet-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .wallet-btn {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .wallet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .wallet-btn i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .wallet-btn.phantom {
+            background: linear-gradient(45deg, #4e44ce, #8247e5);
+        }
+        
+        .wallet-btn.solflare {
+            background: linear-gradient(45deg, #0784b5, #39ace7);
+        }
+        
+        .wallet-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Buy Button */
+        .buy-button {
+            background: linear-gradient(to right, var(--secondary), #ff8c00);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+        }
+        
+        .buy-button:hover {
+            background: linear-gradient(to right, #e05d00, #ff6b00);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255,107,0,0.4);
+        }
+
+        /* Buy Buttons Container */
+        .buy-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        /* Tokenomics */
+        .tokenomics {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            margin: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            margin: 1rem auto;
+            max-width: 800px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Marquee */
+        .marquee {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            z-index: 100;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Features */
+        .feature-box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Contract Address */
+        .contract-address {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 1.5rem auto;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            word-break: break-all;
+        }
+        
+        /* Social Links */
+        .social-links {
+            margin: 2rem 0;
+        }
+        
+        .social-links a {
+            margin: 0 0.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        /* Price Ticker */
+        .price-ticker {
+            background-color: white;
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin: 1rem auto;
+            max-width: 300px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        
+        .change {
+            color: green;
+        }
+        
+        .change.negative {
+            color: red;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 1.5rem;
+            background-color: var(--dark);
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+        }
+        
+        /* Security Notice */
+        .security-notice {
+            background: #fff8e1;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        /* Transaction History */
+        .transaction-history {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        
+        .transaction-item {
+            padding: 0.8rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+            .feature {
+                min-width: 100%;
+            }
+            .buy-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>LIPS COIN 💋</h1>
+            <p>The Most Kissable Meme Coin on Solana</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Price ticker -->
+        <div class="price-ticker">
+            <span id="priceDisplay">LIPS Price: Loading...</span>
+            <span id="priceChange"></span>
+        </div>
+
+        <!-- Logo -->
+        <img src="https://i.postimg.cc/S22StXVN/lips-coin-logo.png" alt="Lips Coin Logo" class="logo">
+
+        <!-- Wallet Connection Section -->
+        <div class="wallet-section">
+            <h2>Connect Your Wallet</h2>
+            <p>To buy and manage your LIPS tokens</p>
+            
+            <button class="wallet-btn phantom" id="phantomBtn" onclick="connectWallet('phantom')">
+                <div class="spinner" id="phantomSpinner"></div>
+                <i class="fas fa-wallet"></i> Connect Phantom
+            </button>
+            
+            <button class="wallet-btn solflare" id="solflareBtn" onclick="connectWallet('solflare')">
+                <div class="spinner" id="solflareSpinner"></div>
+                <i class="fas fa-wallet"></i> Connect Solflare
+            </button>
+            
+            <div id="walletInfo" class="wallet-info" style="display: none;">
+                <p>Connected: <span id="walletAddress"></span></p>
+                <p>Balance: <span id="walletBalance">0</span> SOL</p>
+                <button onclick="disconnectWallet()" style="background: var(--secondary); padding: 0.4rem 0.8rem; border: none; border-radius: 4px; margin-top: 0.5rem; cursor: pointer;">Disconnect</button>
+            </div>
+            
+            <!-- Security Notice Added -->
+            <div class="security-notice">
+                <h3><i class="fas fa-shield-alt"></i> Wallet Safety</h3>
+                <p>• This site never accesses your private keys<br>• Always verify transactions in your wallet before approving</p>
+            </div>
+        </div>
+
+        <!-- Buy button -->
+        <section>
+            <h2>BUY LIPS COIN NOW!</h2>
+            <p>Join our growing community</p>
+            <div class="buy-buttons">
+                <a href="https://pump.fun/coin/HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz" class="buy-button" id="buyButton" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-shopping-cart"></i> CLICK TO BUY (PUMP.FUN)
+                </a>
+                <a href="https://birdeye.so/token/HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz?chain=solana" class="buy-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-chart-line"></i> CLICK TO BUY (BIRDEYE)
+                </a>
+                <a href="https://gmgn.ai/sol/token/solscan_HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz" class="buy-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-rocket"></i> CLICK TO BUY (GMGN)
+                </a>
+            </div>
+        </section>
+
+        <!-- Tokenomics -->
+        <section class="tokenomics">
+            <h2>TOKENOMICS</h2>
+            <div style="margin: 1rem 0;">
+                <p><strong>Total Supply:</strong> 1,000,000,000 LIPS</p>
+                <p><strong>Tax:</strong> 0%</p>
+                <p><strong>Liquidity:</strong> 100% Locked</p>
+                <p><strong>Chain:</strong> Solana</p>
+            </div>
+            <img src="https://i.postimg.cc/tokenomics-chart.png" alt="Lips Coin Tokenomics" style="max-width:100%; margin:1rem 0;">
+        </section>
+
+        <!-- How to Buy Guide -->
+        <section>
+            <h2>HOW TO BUY LIPS COIN</h2>
+            <div class="feature-box">
+                <div class="feature">
+                    <h3><i class="fas fa-download"></i> STEP 1</h3>
+                    <p>Download Phantom Wallet from Chrome Web Store or mobile app store</p>
+                </div>
+                <div class="feature">
+                    <h3><i class="fas fa-exchange-alt"></i> STEP 2</h3>
+                    <p>Buy SOL from exchanges like Binance, Coinbase, or OKX and send to your wallet</p>
+                </div>
+                <div class="feature">
+                    <h3><i class="fas fa-hand-holding-usd"></i> STEP 3</h3>
+                    <p>Go to Pump.fun and swap SOL for LIPS using our contract address</p>
+                </div>
+                <div class="feature">
+                    <h3><i class="fas fa-lock"></i> STEP 4</h3>
+                    <p>Secure your tokens by storing them in your wallet (not on exchange)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs for Features -->
+        <div class="tabs">
+            <div class="tab" onclick="openTab('why')">WHY LIPS?</div>
+            <div class="tab" onclick="openTab('community')">COMMUNITY</div>
+            <div class="tab" onclick="openTab('roadmap')">ROADMAP</div>
+            <div class="tab" onclick="openTab('transactions')" id="transactionsTab" style="display:none;">MY TRANSACTIONS</div>
+        </div>
+
+        <div id="why" class="tab-content active">
+            <h3>WHAT MAKES LIPS COIN SPECIAL?</h3>
+            <ul style="text-align: left; padding-left: 1.5rem;">
+                <li>💋 Zero tax - 100% of your investment stays yours</li>
+                <li>🔒 Locked liquidity for safety</li>
+                <li>🚀 Huge growth potential with low market cap</li>
+                <li>🎉 Fun, engaged community</li>
+            </ul>
+        </div>
+
+        <div id="community" class="tab-content">
+            <h3>JOIN OUR COMMUNITY</h3>
+            <p>Be part of the most active meme coin community on Solana!</p>
+            <div class="social-links">
+                <a href="https://t.me/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a> | 
+                <a href="https://twitter.com/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a> | 
+                <a href="https://discord.gg/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </div>
+        </div>
+
+        <div id="roadmap" class="tab-content">
+            <h3>OUR JOURNEY</h3>
+            <ul style="text-align: left; padding-left: 1.5rem;">
+                <li>✅ Fair launch on Pump.fun</li>
+                <li>🔜 CEX Listings</li>
+                <li>🔜 Merchandise Store</li>
+                <li>🔜 Charity Partnerships</li>
+            </ul>
+        </div>
+
+        <!-- Transaction History Tab Added -->
+        <div id="transactions" class="tab-content">
+            <h3>YOUR RECENT TRANSACTIONS</h3>
+            <div id="transactionsList" class="transaction-history">
+                <p>Connect your wallet to view transaction history</p>
+            </div>
+        </div>
+
+        <!-- Contract address with verification link -->
+        <section class="contract-address">
+            <h3>CONTRACT ADDRESS (SOLANA):</h3>
+            <p>HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz</p>
+            <small>Always verify this address before trading</small>
+            <div style="margin-top: 0.5rem;">
+                <button onclick="copyContractAddress()" style="background: var(--primary); color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 4px; margin-right: 0.5rem; cursor: pointer;">
+                    <i class="far fa-copy"></i> Copy Address
+                </button>
+                <a href="https://solscan.io/token/HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz" target="_blank" style="background: var(--primary); color: white; padding: 0.4rem 0.8rem; border-radius: 4px; text-decoration: none; cursor: pointer;">
+                    <i class="fas fa-shield-alt"></i> Verify Contract
+                </a>
+            </div>
+        </section>
+
+        <!-- Social links -->
+        <section class="social-links">
+            <h3>FOLLOW US</h3>
+            <div>
+                <a href="https://t.me/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a> | 
+                <a href="https://twitter.com/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i> Twitter
+                </a> | 
+                <a href="https://discord.gg/lipscoin" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div class="marquee">
+        <span>🚀 LIPS COIN TO THE MOON! 💋 BUY NOW BEFORE IT'S TOO LATE! 🚀 LIPS COIN TO THE MOON! 💋 BUY NOW BEFORE IT'S TOO LATE!</span>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 LIPS COIN. ALL RIGHTS RESERVED.</p>
+            <small>This is not financial advice. Cryptocurrency investments are volatile and risky.</small>
+        </div>
+    </footer>
+
+    <!-- Solana Web3 Library -->
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    
+    <script>
+        // Initialize Solana connection
+        const connection = new solanaWeb3.Connection(
+            solanaWeb3.clusterApiUrl('mainnet-beta'), 
+            'confirmed'
+        );
+        
+        // Wallet connection function
+        async function connectWallet(walletType) {
+            try {
+                let provider, publicKey;
+                const spinnerId = `${walletType}Spinner`;
+                const btnId = `${walletType}Btn`;
+                
+                // Show loading spinner
+                document.getElementById(spinnerId).style.display = 'inline-block';
+                document.getElementById(btnId).disabled = true;
+                
+                if (walletType === 'phantom') {
+                    provider = window.phantom?.solana;
+                    if (!provider) {
+                        alert('Please install Phantom Wallet!');
+                        window.open('https://phantom.app/', '_blank');
+                        return;
+                    }
+                    const response = await provider.connect();
+                    publicKey = response.publicKey.toString();
+                    
+                } else if (walletType === 'solflare') {
+                    provider = window.solflare;
+                    if (!provider) {
+                        alert('Please install Solflare Wallet!');
+                        window.open('https://solflare.com/', '_blank');
+                        return;
+                    }
+                    await provider.connect();
+                    publicKey = provider.publicKey.toString();
+                }
+                
+                // Get balance
+                const balance = await connection.getBalance(
+                    new solanaWeb3.PublicKey(publicKey)
+                );
+                const solBalance = balance / solanaWeb3.LAMPORTS_PER_SOL;
+                
+                // Display wallet info
+                document.getElementById('walletAddress').textContent = 
+                    `${publicKey.slice(0, 4)}...${publicKey.slice(-4)}`;
+                document.getElementById('walletBalance').textContent = solBalance.toFixed(2);
+                document.getElementById('walletInfo').style.display = 'block';
+                
+                // Show transactions tab
+                document.getElementById('transactionsTab').style.display = 'inline-block';
+                
+                // Load transactions
+                await showRecentTransactions(publicKey);
+                
+                // Store in localStorage
+                localStorage.setItem('connectedWallet', walletType);
+                localStorage.setItem('walletAddress', publicKey);
+                localStorage.setItem('walletBalance', solBalance);
+                
+            } catch (error) {
+                console.error('Wallet connection error:', error);
+                alert('Connection failed: ' + error.message);
+            } finally {
+                // Hide loading spinner
+                document.getElementById(`${walletType}Spinner`).style.display = 'none';
+                document.getElementById(`${walletType}Btn`).disabled = false;
+            }
+        }
+        
+        // Show recent transactions
+        async function showRecentTransactions(publicKey) {
+            try {
+                const transactionsList = document.getElementById('transactionsList');
+                transactionsList.innerHTML = '<p>Loading transactions...</p>';
+                
+                const signatures = await connection.getSignaturesForAddress(
+                    new solanaWeb3.PublicKey(publicKey),
+                    { limit: 5 }
+                );
+                
+                if (signatures.length === 0) {
+                    transactionsList.innerHTML = '<p>No recent transactions found</p>';
+                    return;
+                }
+                
+                let html = '';
+                signatures.forEach(tx => {
+                    const date = new Date(tx.blockTime * 1000).toLocaleString();
+                    html += `
+                        <div class="transaction-item">
+                            <p><strong>TX:</strong> ${tx.signature.slice(0, 10)}...${tx.signature.slice(-5)}</p>
+                            <p><strong>Date:</strong> ${date}</p>
+                            <p><strong>Status:</strong> ${tx.confirmationStatus}</p>
+                            <a href="https://solscan.io/tx/${tx.signature}" target="_blank" style="color: var(--primary);">View on Solscan</a>
+                        </div>
+                    `;
+                });
+                
+                transactionsList.innerHTML = html;
+            } catch (error) {
+                console.error('Error fetching transactions:', error);
+                document.getElementById('transactionsList').innerHTML = 
+                    '<p>Could not load transactions</p>';
+            }
+        }
+        
+        // Disconnect wallet
+        function disconnectWallet() {
+            localStorage.removeItem('connectedWallet');
+            localStorage.removeItem('walletAddress');
+            localStorage.removeItem('walletBalance');
+            document.getElementById('walletInfo').style.display = 'none';
+            document.getElementById('transactionsTab').style.display = 'none';
+            document.getElementById('transactionsList').innerHTML = 
+                '<p>Connect your wallet to view transaction history</p>';
+            
+            // Disconnect from wallets
+            if (window.phantom?.solana?.isConnected) {
+                window.phantom.solana.disconnect();
+            }
+            if (window.solflare?.isConnected) {
+                window.solflare.disconnect();
+            }
+        }
+        
+        // Check for existing connection on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedWallet = localStorage.getItem('connectedWallet');
+            const savedAddress = localStorage.getItem('walletAddress');
+            const savedBalance = localStorage.getItem('walletBalance');
+            
+            if (savedWallet && savedAddress) {
+                document.getElementById('walletAddress').textContent = 
+                    `${savedAddress.slice(0, 4)}...${savedAddress.slice(-4)}`;
+                document.getElementById('walletBalance').textContent = 
+                    parseFloat(savedBalance).toFixed(2);
+                document.getElementById('walletInfo').style.display = 'block';
+                document.getElementById('transactionsTab').style.display = 'inline-block';
+                showRecentTransactions(savedAddress);
+            }
+            
+            // Load real price data
+            fetchRealPrice();
+        });
+        
+        // Fetch real price from DexScreener API
+        async function fetchRealPrice() {
+            try {
+                const response = await fetch('https://api.dexscreener.com/latest/dex/tokens/HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz');
+                const data = await response.json();
+                
+                if (data.pairs && data.pairs.length > 0) {
+                    const pair = data.pairs[0];
+                    const price = parseFloat(pair.priceUsd).toFixed(6);
+                    const change = parseFloat(pair.priceChange.h24).toFixed(2);
+                    const isPositive = change >= 0;
+                    
+                    document.getElementById('priceDisplay').textContent = 
+                        `LIPS Price: $${price}`;
+                    document.getElementById('priceChange').textContent = 
+                        `(${isPositive ? '+' : ''}${change}%)`;
+                    
+                    const changeElement = document.getElementById('priceChange');
+                    changeElement.className = isPositive ? 'change' : 'change negative';
+                } else {
+                    document.getElementById('priceDisplay').textContent = 
+                        'LIPS Price: Data unavailable';
+                }
+            } catch (err) {
+                console.error('Price fetch error:', err);
+                document.getElementById('priceDisplay').textContent = 
+                    'LIPS Price: Error loading';
+            }
+        }
+        
+        // Update price every 30 seconds
+        setInterval(fetchRealPrice, 30000);
+        
+        // Tab functionality
+        function openTab(tabId) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+        
+        // Copy contract address
+        function copyContractAddress() {
+            const address = 'HxDMgMFC3f5nghQfcWpxYkxZn25buWVPvfJKK7Lzopwz';
+            navigator.clipboard.writeText(address).then(() => {
+                alert('Contract address copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
